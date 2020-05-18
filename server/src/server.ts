@@ -1,4 +1,7 @@
+import * as dotenv from "dotenv";
 import 'zone.js/dist/zone-node';
+
+dotenv.config();
 
 import { APP_BASE_HREF } from '@angular/common';
 import { ngExpressEngine } from '@nguniversal/express-engine';

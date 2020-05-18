@@ -4,20 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "ng build",
-        "build:aot": "ng build --aot",
-        "build:prod": "ng build --prod --aot",
-        "build:ssr": "ng build --prod && ng run client:server:production",
-        "dev:ssr": "ng run client:serve-ssr",
-        "prerender": "ng run client:prerender",
-        "serve:ssr": "node dist/server/main.js",
-        "start": "ng serve",
-        "test": "npm run test:client && npm run test:server",
-        "test:client": "cd client && npm run test",
-        "test:client:coverage": "cd client && npm run test:coverage",
-        "test:coverage": "npm run test:client:coverage && npm run test:server:coverage",
-        "test:server": "cd server && npm run test",
-        "test:server:coverage": "cd server && npm run test:coverage"
+        "test": "cd client && npm run test && cd server && npm run test",
+        "test:coverage": "cd client && npm run test:coverage && cd server && npm run test:coverage",
     },
     "author": "Bernardo Reis",
     "license": "ISC"

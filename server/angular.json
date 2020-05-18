@@ -15,8 +15,12 @@
             "prefix": "app",
             "architect": {
                 "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
+                    "_builder:": "@angular-devkit/build-angular:browser",
+                    "builder": "@angular-builders/custom-webpack:browser",
                     "options": {
+                        "customWebpackConfig": {
+                            "path": "../client/webpack.config.js"
+                        },
                         "outputPath": "./dist/client",
                         "index": "../client/src/index.html",
                         "main": "../client/src/main.ts",
