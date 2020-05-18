@@ -31,17 +31,20 @@
         "@angular/platform-browser": "^9.1.7",
         "@angular/platform-browser-dynamic": "^9.1.7",
         "@types/express": "^4.17.6",
+        "@types/jest": "^25.2.2",
+        "@types/jest-when": "^2.7.1",
         "@types/lodash": "^4.14.151",
         "@types/node": "^14.0.1",
+        "jest": "^26.0.1",
+        "jest-when": "^2.7.1",
+        "ts-jest": "^26.0.0",
         "ts-node": "^8.10.1",
         "typescript": "~3.8.3"
     },
     "jest": {
         "collectCoverageFrom": [
             "src/**/*.js",
-            "src/**/*.ts",
-            "!src/environments/*.ts",
-            "!src/tests/**/*.ts"
+            "src/**/*.ts"
         ],
         "coverageDirectory": "coverage",
         "coveragePathIgnorePatterns": [
@@ -50,11 +53,20 @@
         "coverageReporters": [
             "lcov"
         ],
+        "globals": {
+            "ts-jest": {
+                "tsConfig": "test/tsconfig.test.json"
+            }
+        },
         "roots": [
-            "src"
+            "test"
         ],
         "setupFilesAfterEnv": [
-            "./src/jest-setup.ts"
-        ]
+            "./test/jest-setup.ts"
+        ],
+        "testEnvironment": "node",
+        "transform": {
+            "^.+\\.(ts|tsx)$": "ts-jest"
+        }
     }
 }
