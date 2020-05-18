@@ -1,11 +1,27 @@
 {
-  "name": "dashboard-poc",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+    "name": "dashboard-poc",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "ng build",
+        "build:aot": "ng build --aot",
+        "build:prod": "ng build --prod --aot",
+        "build:ssr": "ng build --prod && ng run client:server:production",
+        "dev:ssr": "ng run client:serve-ssr",
+        "e2e": "ng e2e",
+        "lint": "ng lint",
+        "ng": "ng",
+        "prerender": "ng run client:prerender",
+        "serve:ssr": "node dist/server/main.js",
+        "start": "ng serve",
+        "test": "npm run test:client && npm run test:server",
+        "test:client": "cd client && npm run test",
+        "test:client:coverage": "cd client && npm run test:coverage",
+        "test:coverage": "npm run test:client:coverage && npm run test:server:coverage",
+        "test:server": "cd server && npm run test",
+        "test:server:coverage": "cd server && npm run test:coverage"
+    },
+    "author": "Bernardo Reis",
+    "license": "ISC"
 }
