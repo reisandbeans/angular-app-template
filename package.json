@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "cd client && npm run test && cd server && npm run test",
-        "test:coverage": "cd client && npm run test:coverage && cd server && npm run test:coverage",
+        "test:coverage": "cd client && npm run test:coverage && cd server && npm run test:coverage"
     },
     "author": "Bernardo Reis",
     "license": "ISC"
