@@ -1,5 +1,5 @@
 {
-    "name": "dashboard-poc",
+    "name": "angular-app-template",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -9,9 +9,6 @@
         "build:prod": "ng build --prod --aot",
         "build:ssr": "ng build --prod && ng run client:server:production",
         "dev:ssr": "ng run client:serve-ssr",
-        "e2e": "ng e2e",
-        "lint": "ng lint",
-        "ng": "ng",
         "prerender": "ng run client:prerender",
         "serve:ssr": "node dist/server/main.js",
         "start": "ng serve",
