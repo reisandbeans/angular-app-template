@@ -11,7 +11,9 @@ const envVarsToExpose = pick(process.env, whitelist);
 module.exports = {
     plugins: [
         new webpack.DefinePlugin({
-            $ENV: envVarsToExpose
+            process: {
+                env: envVarsToExpose
+            }
         }),
     ],
 };

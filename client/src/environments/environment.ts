@@ -1,4 +1,4 @@
-const { USE_SSR } = $ENV;
+const { USE_SSR } = process.env;
 
 export const environment = {
     appId: 'app',

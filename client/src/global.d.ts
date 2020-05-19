@@ -1,1 +1,1 @@
-declare var $ENV: { [key: string]: any };
+declare var process: { [key: string]: any };
