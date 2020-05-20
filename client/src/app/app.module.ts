@@ -4,7 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 
-const { appId, useSsr } = environment;
+const { appId, useSsr } = environment as any;
+
 const browserModule = useSsr ?
     BrowserModule.withServerTransition({ appId }) :
     BrowserModule;

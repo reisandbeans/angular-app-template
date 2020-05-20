@@ -1,7 +1,8 @@
 import * as dotenv from "dotenv";
 import 'zone.js/dist/zone-node';
+import * as path from 'path';
 
-dotenv.config();
+dotenv.config({ path: path.resolve('../.env') });
 
 import { APP_BASE_HREF } from '@angular/common';
 import { ngExpressEngine } from '@nguniversal/express-engine';
@@ -13,7 +14,7 @@ import { AppServerModule } from './app/main.server';
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {
     const server = express();
-    const distFolder = join(process.cwd(), 'dist/client');
+    const distFolder = path.resolve(process.cwd(), '../client/dist');
     const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
     // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
