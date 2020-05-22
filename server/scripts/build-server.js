@@ -1,7 +1,7 @@
 const angularCli = require('@angular/cli').default;
 
 const options = {
-    cliArgs: ['run', 'client:server:production'],
+    cliArgs: ['run', 'client:serve-ssr'],
     inputStream: process.stdin,
     outputStream: process.stdout,
 }
