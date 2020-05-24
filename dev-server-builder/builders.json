@@ -1,9 +1,9 @@
 {
     "builders": {
-        "command": {
+        "serve": {
             "implementation": "./dist",
             "schema": "./src/schema.json",
-            "description": "Runs any command line in the operating system."
+            "description": "Runs client and server in dev mode"
         }
     }
 }

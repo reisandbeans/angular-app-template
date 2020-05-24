@@ -116,12 +116,17 @@
                     }
                 },
                 "serve-test": {
-                    "builder": "../dev-server-builder:command",
+                    "builder": "../dev-server-builder:serve",
                     "options": {
-                        "command": "ping",
-                        "args": [
-                            "www.facebook.com"
-                        ]
+                        "browserTarget": "client:build",
+                        "browserWorkspaceRoot": "../client",
+                        "serverTarget": "client:server"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "client:build:production",
+                            "serverTarget": "client:server:production"
+                        }
                     }
                 }
             }
