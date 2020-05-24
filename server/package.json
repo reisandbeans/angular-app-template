@@ -4,12 +4,11 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "build": "npm run build:client && npm run build:server",
         "build:client": "cd ../client && npm run build:prod",
-        "build:ssr": "npm run build:client && ng run client:server:production",
-        "dev:ssr": "ng run client:serve-ssr",
-        "dev-server": "ng run client:serve-test",
-        "prerender": "ng run client:prerender",
-        "serve:ssr": "node dist/main.js",
+        "build:server": "ng build --prod",
+        "serve": "npm run build && node dist/main.js",
+        "serve:dev": "ng run server:serve",
         "test": "jest",
         "test:coverage": "jest --coverage"
     },
@@ -39,6 +38,7 @@
         "@angular/platform-browser": "^9.1.7",
         "@angular/platform-browser-dynamic": "^9.1.7",
         "@nguniversal/builders": "^9.1.1",
+        "@types/browser-sync": "^2.26.1",
         "@types/dotenv": "^8.2.0",
         "@types/express": "^4.17.6",
         "@types/jest": "^25.2.2",
@@ -55,6 +55,7 @@
         "ts-node": "^8.10.1",
         "typescript": "~3.8.3"
     },
+    "builders": "./builder/builders.json",
     "jest": {
         "collectCoverageFrom": [
             "src/**/*.js",

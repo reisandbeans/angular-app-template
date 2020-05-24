@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "client": {
+        "server": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -15,65 +15,11 @@
             "prefix": "app",
             "architect": {
                 "build": {
-                    "_builder:": "@angular-devkit/build-angular:browser",
-                    "builder": "@angular-builders/custom-webpack:browser",
-                    "options": {
-                        "customWebpackConfig": {
-                            "path": "../client/webpack.config.js"
-                        },
-                        "outputPath": "./dist/client",
-                        "index": "../client/src/index.html",
-                        "main": "../client/src/main.ts",
-                        "polyfills": "../client/src/polyfills.ts",
-                        "tsConfig": "../client/tsconfig.app.json",
-                        "aot": true,
-                        "assets": [
-                            "../client/src/favicon.ico",
-                            "../client/src/assets"
-                        ],
-                        "styles": [
-                            "../client/src/assets/styles/styles.scss"
-                        ],
-                        "scripts": []
-                    },
-                    "configurations": {
-                        "production": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "../client/src/environments/environment.ts",
-                                    "with": "../client/src/environments/environment.prod.ts"
-                                }
-                            ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "preserveSymlinks": true,
-                            "budgets": [
-                                {
-                                    "type": "initial",
-                                    "maximumWarning": "2mb",
-                                    "maximumError": "5mb"
-                                },
-                                {
-                                    "type": "anyComponentStyle",
-                                    "maximumWarning": "6kb",
-                                    "maximumError": "10kb"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "server": {
                     "builder": "@angular-devkit/build-angular:server",
                     "options": {
                         "outputPath": "./dist",
                         "main": "src/server.ts",
-                        "tsConfig": "tsconfig.server.json"
+                        "tsConfig": "tsconfig.json"
                     },
                     "configurations": {
                         "production": {
@@ -89,50 +35,24 @@
                         }
                     }
                 },
-                "serve-ssr": {
-                    "builder": "@nguniversal/builders:ssr-dev-server",
-                    "options": {
-                        "browserTarget": "client:build",
-                        "serverTarget": "client:server"
-                    },
-                    "configurations": {
-                        "production": {
-                            "browserTarget": "client:build:production",
-                            "serverTarget": "client:server:production"
-                        }
-                    }
-                },
-                "prerender": {
-                    "builder": "@nguniversal/builders:prerender",
-                    "options": {
-                        "browserTarget": "client:build:production",
-                        "serverTarget": "client:server:production",
-                        "routes": [
-                            "/"
-                        ]
-                    },
-                    "configurations": {
-                        "production": {}
-                    }
-                },
-                "serve-test": {
-                    "builder": "../dev-server-builder:serve",
+                "serve": {
+                    "builder": "../server:dev-server",
                     "options": {
                         "browserTarget": "client:build",
                         "browserWorkspaceRoot": "../client",
-                        "serverTarget": "client:server"
+                        "serverTarget": "server:build"
                     },
                     "configurations": {
                         "production": {
                             "browserTarget": "client:build:production",
-                            "serverTarget": "client:server:production"
+                            "serverTarget": "server:build:production"
                         }
                     }
                 }
             }
         }
     },
-    "defaultProject": "client",
+    "defaultProject": "server",
     "cli": {
         "analytics": "38b4a2c5-086d-4bc9-8b66-90c02258a124"
     }

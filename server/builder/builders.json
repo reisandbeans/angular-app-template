@@ -2,7 +2,7 @@
     "builders": {
         "dev-server": {
             "implementation": "./dist",
-            "schema": "./src/schema.json",
+            "schema": "./schema.json",
             "description": "Runs client and server in dev mode"
         }
     }
