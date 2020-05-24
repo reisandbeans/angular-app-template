@@ -1,6 +1,5 @@
 import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
-import architect  from '@angular-devkit/architect';
 import * as childProcess from 'child_process';
 
 interface Options extends JsonObject {
