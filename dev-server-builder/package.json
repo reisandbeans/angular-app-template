@@ -1,0 +1,17 @@
+{
+    "name": "dev-server-builder",
+    "version": "1.0.0",
+    "description": "Builder for a hot-reloading development server",
+    "builders": "builders.json",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "@angular-devkit/architect": "^0.901.7",
+        "@angular/cli": "^9.1.7",
+        "@types/node": "^14.0.5",
+        "ts-node": "^8.10.1",
+        "typescript": "^3.9.3"
+    }
+}

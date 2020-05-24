@@ -114,6 +114,15 @@
                     "configurations": {
                         "production": {}
                     }
+                },
+                "serve-test": {
+                    "builder": "../dev-server-builder:command",
+                    "options": {
+                        "command": "ping",
+                        "args": [
+                            "www.facebook.com"
+                        ]
+                    }
                 }
             }
         }
