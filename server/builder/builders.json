@@ -1,9 +1,0 @@
-{
-    "builders": {
-        "dev-server": {
-            "implementation": "./dist",
-            "schema": "./schema.json",
-            "description": "Runs client and server in dev mode"
-        }
-    }
-}
