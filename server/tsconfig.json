@@ -16,15 +16,9 @@
         "paths": {
             "@angular/*": ["./node_modules/@angular/*"],
             "@app/*": ["src/app/*"],
-            "@constants/*": ["src/app/constants/*"],
-            "@core/*": ["src/app/core/*"],
-            "@exceptions/*": ["src/app/exceptions/*"],
-            "@interfaces/*": ["src/app/shared/interfaces/*"],
-            "@modules/*": ["src/app/modules/*"],
-            "@pipes/*": ["src/app/pipes/*"],
-            "@shared/*": ["src/app/shared/*"],
-            "@util/*": ["src/app/shared/util/*"],
-            "@validators/*": ["src/app/shared/validators/*"]
+            "@client/*": ["../client/*"],
+            "@env": ["../.env"],
+            "@init": ["src/config/init"]
         },
         "removeComments": true,
         "sourceMap": true,
@@ -32,12 +26,10 @@
         "types": ["node"]
     },
     "files": [
-        "src/server.ts",
-        "src/app/main.server.ts",
-        "src/app/app.server.module.ts"
+        "src/server.ts"
     ],
     "angularCompilerOptions": {
-        "entryModule": "./src/app/app.server.module#AppServerModule",
+        "entryModule": "./src/app/app-server-module#AppServerModule",
         "fullTemplateTypeCheck": true,
         "strictInjectionParameters": true
     }
