@@ -1,8 +1,8 @@
 import 'zone.js/dist/zone-node';
 import { resolve } from 'path';
-import * as appRoot from 'app-root-path';
 import * as dotenv from 'dotenv';
 
-dotenv.config({ path: resolve(appRoot.path, '.env') });
+const path = resolve(process.cwd(), '.env');
+dotenv.config({ path });
 
-console.log('<<<<< ROOT', appRoot.path, '>>>>>');
+console.log('<<<<< USE_SSR', process.env.USE_SSR, '>>>>>');

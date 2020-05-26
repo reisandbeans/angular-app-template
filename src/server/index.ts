@@ -1,21 +1,21 @@
 import '@init';
-import * as path from 'path';
+import { resolve } from 'path';
 import { APP_BASE_HREF } from '@angular/common';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import express, { Request, Response } from 'express';
-import { existsSync } from 'fs';
 import { AppServerModule } from '@app/app-server-module';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {
     const server = express();
-    const distFolder = '../../client';
-    const indexHtml = existsSync(path.join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
+    const distFolder = resolve(__dirname, '../../dist/client');
 
-    // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
-    server.engine('html', ngExpressEngine({
-        bootstrap: AppServerModule,
-    }));
+    if (process.env.USE_SSR) {
+        // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
+        server.engine('html', ngExpressEngine({
+            bootstrap: AppServerModule,
+        }));
+    }
 
     server.set('view engine', 'html');
     server.set('views', distFolder);
@@ -30,7 +30,11 @@ export function app() {
 
     // All regular routes use the Universal engine
     server.get('*', (req: Request, res: Response) => {
-        res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+        if (process.env.USE_SSR) {
+            res.render('index', { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+        } else {
+            res.sendFile(`${distFolder}/index.html`);
+        }
     });
 
     return server;
