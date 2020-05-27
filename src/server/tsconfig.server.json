@@ -18,6 +18,7 @@
             "@app/*": ["app/*"],
             "@client/*": ["../app/*"],
             "@environments/*": ["../environments/*"],
+            "@logger": ["lib/logger"],
             "@init": ["config/init"]
         },
         "removeComments": true,
@@ -26,10 +27,11 @@
         "types": ["node"]
     },
     "files": [
-        "./index.ts"
+        "./index.ts",
+        "./server-side-rendering/server-main.ts"
     ],
     "angularCompilerOptions": {
-        "entryModule": "app/app-server-module#AppServerModule",
+        "entryModule": "server-side-rendering/app-server-module#AppServerModule",
         "fullTemplateTypeCheck": true,
         "strictInjectionParameters": true
     }
