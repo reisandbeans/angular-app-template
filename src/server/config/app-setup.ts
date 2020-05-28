@@ -3,15 +3,14 @@ import bodyParser from 'body-parser';
 import Router from 'express-promise-router';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { APP_BASE_HREF } from '@angular/common';
-import { resolve } from 'path';
 import { mount } from '../api';
+import { serverConfig } from './server-config';
 import { AppServerModule } from '../server-side-rendering/app-server-module';
 
-const distFolder = resolve(__dirname, '../../../dist/client');
-const useSsr = process.env.USE_SSR;
+const { useSsr, distFolderPath } = serverConfig;
 const renderer = useSsr
     ? (req: Request, res: Response) => res.render('index', { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] })
-    : (req: Request, res: Response) => res.sendFile(`${distFolder}/index.html`);
+    : (req: Request, res: Response) => res.sendFile(`${distFolderPath}/index.html`);
 
 export function buildApp() {
     const app = express();
@@ -22,7 +21,7 @@ export function buildApp() {
 }
 
 function serveStaticFiles(app: Application) {
-    app.get('*.*', express.static(distFolder, {
+    app.get('*.*', express.static(distFolderPath, {
         maxAge: '1y'
     }));
 
@@ -37,7 +36,7 @@ function setupMiddleware(app: Application) {
     }
 
     app.set('view engine', 'html');
-    app.set('views', distFolder);
+    app.set('views', distFolderPath);
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
 }
