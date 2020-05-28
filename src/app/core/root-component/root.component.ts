@@ -3,10 +3,10 @@ import { isPlatformBrowser } from '@angular/common';
 
 @Component({
     selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    templateUrl: './root.component.html',
+    styleUrls: ['./root.component.scss']
 })
-export class AppComponent implements OnInit {
+export class RootComponent implements OnInit {
     platform: string;
 
     constructor(@Inject(PLATFORM_ID) private platformId: object) {

@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { environment } from '@environments/environment';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { RootRoutingModule } from './root-routing.module';
+import { RootComponent } from './root.component';
 
 const { appId, useSsr } = environment as any;
 
@@ -11,12 +11,12 @@ const browserModule = useSsr ?
     BrowserModule;
 
 @NgModule({
-    bootstrap: [AppComponent],
-    declarations: [AppComponent],
+    bootstrap: [RootComponent],
+    declarations: [RootComponent],
     imports: [
-        AppRoutingModule,
+        RootRoutingModule,
         browserModule,
     ],
     providers: [],
 })
-export class AppModule {}
+export class RootModule {}

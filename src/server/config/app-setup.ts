@@ -5,7 +5,7 @@ import { ngExpressEngine } from '@nguniversal/express-engine';
 import { APP_BASE_HREF } from '@angular/common';
 import { mount } from '../api';
 import { serverConfig } from './server-config';
-import { AppServerModule } from '../server-side-rendering/app-server-module';
+import { RootServerModule } from '../server-side-rendering/root-server-module';
 
 const { useSsr, distFolderPath } = serverConfig;
 const renderer = useSsr
@@ -31,7 +31,7 @@ function serveStaticFiles(app: Application) {
 function setupMiddleware(app: Application) {
     if (useSsr) {
         app.engine('html', ngExpressEngine({
-            bootstrap: AppServerModule,
+            bootstrap: RootServerModule,
         }));
     }
 

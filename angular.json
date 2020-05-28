@@ -23,7 +23,7 @@
                         },
                         "outputPath": "./dist/client",
                         "index": "src/assets/index.html",
-                        "main": "src/app/main.ts",
+                        "main": "src/app/index.ts",
                         "polyfills": "src/app/polyfills.ts",
                         "tsConfig": "src/app/tsconfig.app.json",
                         "aot": true,

@@ -31,7 +31,7 @@
         "./server-side-rendering/server-main.ts"
     ],
     "angularCompilerOptions": {
-        "entryModule": "server-side-rendering/app-server-module#AppServerModule",
+        "entryModule": "server-side-rendering/root-server-module#RootServerModule",
         "fullTemplateTypeCheck": true,
         "strictInjectionParameters": true
     }

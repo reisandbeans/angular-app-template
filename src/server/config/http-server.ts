@@ -16,5 +16,10 @@ export function startServer(app: Application) {
             logger.info(`Server listening on port ${port}...`);
             resolve(server);
         });
+
+        server.on('error', (error: any) => {
+            logger.error('HTTP Server error:', error);
+            throw error(error);
+        });
     });
 }

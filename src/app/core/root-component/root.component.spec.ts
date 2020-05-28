@@ -1,9 +1,9 @@
 import { Spectator, createComponentFactory } from '@ngneat/spectator';
-import { AppComponent } from './app.component';
+import { RootComponent } from './root.component';
 
 describe('AppComponent', () => {
-    let spectator: Spectator<AppComponent>;
-    const createComponent = createComponentFactory(AppComponent);
+    let spectator: Spectator<RootComponent>;
+    const createComponent = createComponentFactory(RootComponent);
 
     beforeEach(() => spectator = createComponent());
 
