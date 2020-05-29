@@ -14,6 +14,7 @@
         "@angular/platform-server": "~9.1.7",
         "@angular/router": "~9.1.7",
         "@nguniversal/express-engine": "^9.1.1",
+        "ajv": "^6.12.2",
         "akita": "^0.9.0",
         "app-root-path": "^3.0.0",
         "body-parser": "^1.19.0",
@@ -23,8 +24,10 @@
         "http-graceful-shutdown": "^2.3.2",
         "lodash": "^4.17.15",
         "rxjs": "~6.5.4",
+        "ts-enum-util": "^4.0.1",
         "tslib": "^1.10.0",
         "winston": "^3.2.1",
+        "yargs": "^15.3.1",
         "zone.js": "~0.10.2"
     },
     "devDependencies": {
@@ -47,6 +50,7 @@
         "@types/lolex": "^5.1.0",
         "@types/node": "^12.12.42",
         "@types/winston": "^2.4.4",
+        "@types/yargs": "^15.0.5",
         "codelyzer": "^5.1.2",
         "jasmine-core": "~3.5.0",
         "jasmine-spec-reporter": "~4.2.1",
@@ -68,8 +72,13 @@
         "build:server": "ng run app:build-server",
         "build:server:production": "ng run app:build-server:production",
         "serve:client": "ng run app:serve-client",
+        "serve:server": "node dist/server/main.js",
         "serve": "ng run app:serve"
     },
     "author": "Bernardo Reis",
-    "license": "ISC"
+    "license": "ISC",
+    "browserslist": [
+        "defaults",
+        "not IE 9-11"
+    ]
 }
