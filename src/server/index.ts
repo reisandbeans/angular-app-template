@@ -5,9 +5,13 @@ import { startServer } from './config/http-server';
 
 const app = buildApp();
 
-startServer(app)
-    .then(() => {})
-    .catch((error: any) => {
-        logger.error('Error while bootstrapping application', error);
-        throw error;
-    });
+export function run() {
+    return startServer(app)
+        .then(() => {})
+        .catch((error: any) => {
+            logger.error('Error while bootstrapping application', error);
+            throw error;
+        });
+}
+
+run();

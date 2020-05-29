@@ -1,0 +1,5 @@
+- add tests
+- add e2e solution (options: puppeteer, test-cafe)
+- standardize api responses
+- use express-promise-router
+- CI/CD

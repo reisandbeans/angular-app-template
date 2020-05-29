@@ -1,7 +1,7 @@
 import Router from 'express-promise-router';
-import {  createValidator } from 'express-ajv';
 import { schemas } from './hello-world-schemas';
 import { helloWorld } from './hello-world-controller';
+import { createValidator } from '../../lib/validator-factory';
 
 const validator = createValidator(schemas);
 const router = Router();

@@ -15,7 +15,6 @@
         "noImplicitAny": true,
         "outDir": "../../dist/server/out-tsc",
         "paths": {
-            "@app/*": ["app/*"],
             "@client/*": ["../app/*"],
             "@environments/*": ["../environments/*"],
             "@logger": ["lib/logger"],
