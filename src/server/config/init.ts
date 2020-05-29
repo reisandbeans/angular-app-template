@@ -1,8 +1,6 @@
 import 'zone.js/dist/zone-node';
-import { resolve } from 'path';
-import { config as configEnv } from 'dotenv-safe';
+import { config as configEnv } from 'dotenv';
 
-const example = resolve(process.cwd(), '.env.example');
-configEnv({ example });
+configEnv();
 
 import '../server-side-rendering/server-main';

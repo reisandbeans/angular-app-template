@@ -1,0 +1,36 @@
+# This file is just an example and should not be used in production
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: angular-app-template
+    labels:
+        app: angular-app-template
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            app: angular-app-template
+    template:
+        metadata:
+            labels:
+                app: angular-app-template
+        spec:
+            containers:
+                - name: angular-app-template
+                  image: reis/angular-app-template:v1.0.1
+                  imagePullPolicy: Never
+                  ports:
+                      - containerPort: 80
+                  env:
+                      - name: POD_NAME
+                        valueFrom:
+                            fieldRef:
+                                fieldPath: metadata.name
+                  livenessProbe:
+                      httpGet:
+                          port: 8080
+                          path: api/health-check
+                      initialDelaySeconds: 5
+                      periodSeconds: 1
+                      failureThreshold: 1

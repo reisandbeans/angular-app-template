@@ -1,11 +1,9 @@
-const { config: configEnv } = require('dotenv-safe');
-const { resolve } = require('path');
+const { config: configEnv } = require('dotenv');
 const { pick } = require('lodash');
 const webpack = require('webpack');
 
 const whitelist = ['API_URL', 'USE_SSR'];
-const example = resolve(process.cwd(), '.env.example');
-configEnv({ example });
+configEnv();
 
 const envVarsToExpose = pick(process.env, whitelist);
 
