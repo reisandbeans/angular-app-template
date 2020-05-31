@@ -93,11 +93,13 @@
     "jest": {
         "clearMocks": true,
         "coveragePathIgnorePatterns": [
-            "/node_modules/",
-            "<rootDir>/src/app/tests/",
-            "<rootDir>/src/assets/",
-            "<rootDir>/src/environments/",
-            "<rootDir>/src/server/tests/"
+            "/node_modules/"
+        ],
+        "collectCoverageFrom": [
+            "src/app/**/*.ts",
+            "src/server/**/*.ts",
+            "!src/server/tests/**",
+            "!src/app/tests/**"
         ],
         "coverageThreshold": {
             "global": {
@@ -112,11 +114,6 @@
         ],
         "projects": [
             {
-                "collectCoverageFrom": [
-                    "src/app/**/*.js",
-                    "src/app/**/*.ts"
-                ],
-                "coverageDirectory": "coverage/app",
                 "displayName": "app",
                 "globals": {
                     "ts-jest": {
@@ -129,19 +126,13 @@
                     }
                 },
                 "preset": "jest-preset-angular",
-                "roots": [
-                    "./src/app"
-                ],
+                "rootDir": "./",
+                "roots": ["./src/app"],
                 "setupFilesAfterEnv": [
                     "./src/app/tests/jest-setup.ts"
                 ]
             },
             {
-                "collectCoverageFrom": [
-                    "src/server/**/*.js",
-                    "src/server/**/*.ts"
-                ],
-                "coverageDirectory": "coverage/server",
                 "displayName": "server",
                 "globals": {
                     "ts-jest": {
@@ -157,6 +148,7 @@
                     "^@tests/(.*)$": "<rootDir>/src/server/tests/$1",
                     "^@test-lib/(.*)$": "<rootDir>/src/server/tests/lib/$1"
                 },
+                "rootDir": "./",
                 "roots": [
                     "./src/server"
                 ],
