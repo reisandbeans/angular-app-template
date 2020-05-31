@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { errorHandler } from './lib/error-handler';
+import { errorHandler } from '../lib/middleware/error-handler';
 import { mount as mountRoutes } from './routes';
 
 export function mount(router: Router) {

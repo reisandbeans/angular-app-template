@@ -9,6 +9,6 @@ const bodySchema = {
         }
     },
     required: ['sender'],
-}
+};
 
 export const postHelloWorld = createPostRequestSchema(bodySchema);

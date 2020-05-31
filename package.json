@@ -1,8 +1,12 @@
 {
+    "author": "Bernardo Reis",
     "name": "angular-app-template",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "engines": {
+        "node": ">=12.14.0"
+    },
     "dependencies": {
         "@angular/animations": "~9.1.7",
         "@angular/common": "~9.1.7",
@@ -22,6 +26,7 @@
         "express-ajv": "github:Tinadim/express-ajv#v1.1.0",
         "express-promise-router": "^3.0.3",
         "http-graceful-shutdown": "^2.3.2",
+        "http-status-codes": "^1.4.0",
         "lodash": "^4.17.15",
         "rxjs": "~6.5.4",
         "ts-enum-util": "^4.0.1",
@@ -42,6 +47,7 @@
         "@types/dotenv-safe": "^8.1.0",
         "@types/express": "^4.17.6",
         "@types/express-promise-router": "^3.0.0",
+        "@types/http-status-codes": "^1.2.0",
         "@types/jasmine": "~3.5.0",
         "@types/jasminewd2": "~2.0.3",
         "@types/jest": "^25.2.2",
@@ -49,6 +55,7 @@
         "@types/lodash": "^4.14.151",
         "@types/lolex": "^5.1.0",
         "@types/node": "^12.12.42",
+        "@types/supertest": "^2.0.9",
         "@types/winston": "^2.4.4",
         "@types/yargs": "^15.0.5",
         "codelyzer": "^5.1.2",
@@ -59,6 +66,7 @@
         "jest-when": "^2.7.1",
         "lolex": "^6.0.0",
         "protractor": "~5.4.3",
+        "supertest": "^4.0.2",
         "ts-jest": "^26.0.0",
         "ts-node": "~8.3.0",
         "tslint": "~6.1.0",
@@ -77,7 +85,6 @@
         "serve:server": "node dist/server/main.js",
         "serve": "ng run app:serve"
     },
-    "author": "Bernardo Reis",
     "license": "ISC",
     "browserslist": [
         "defaults",
@@ -86,7 +93,11 @@
     "jest": {
         "clearMocks": true,
         "coveragePathIgnorePatterns": [
-            "/node_modules/"
+            "/node_modules/",
+            "<rootDir>/src/app/tests/",
+            "<rootDir>/src/assets/",
+            "<rootDir>/src/environments/",
+            "<rootDir>/src/server/tests/"
         ],
         "coverageThreshold": {
             "global": {
@@ -118,7 +129,9 @@
                     }
                 },
                 "preset": "jest-preset-angular",
-                "roots": ["./src/app"],
+                "roots": [
+                    "./src/app"
+                ],
                 "setupFilesAfterEnv": [
                     "./src/app/tests/jest-setup.ts"
                 ]
@@ -141,9 +154,12 @@
                     "^@init$": "<rootDir>/src/server/config/init.ts",
                     "^@logger$": "<rootDir>/src/server/lib/logger.ts",
                     "^@server/(.*)$": "<rootDir>/src/server/$1",
-                    "^@tests/(.*)$": "<rootDir>/src/server/tests/$1"
+                    "^@tests/(.*)$": "<rootDir>/src/server/tests/$1",
+                    "^@test-lib/(.*)$": "<rootDir>/src/server/tests/lib/$1"
                 },
-                "roots": ["./src/server"],
+                "roots": [
+                    "./src/server"
+                ],
                 "setupFilesAfterEnv": [
                     "./src/server/tests/jest-setup.ts"
                 ],
@@ -155,5 +171,4 @@
         ],
         "restoreMocks": true
     }
-
 }

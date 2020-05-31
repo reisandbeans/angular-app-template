@@ -18,7 +18,9 @@
             "@client/*": ["../app/*"],
             "@environments/*": ["../environments/*"],
             "@logger": ["lib/logger"],
-            "@init": ["config/init"]
+            "@init": ["config/init"],
+            "@server/*": ["./*"],
+            "@test-lib/*": ["tests/lib/*"]
         },
         "removeComments": true,
         "sourceMap": true,
@@ -28,6 +30,9 @@
     "files": [
         "./index.ts",
         "./server-side-rendering/server-main.ts"
+    ],
+    "exclude": [
+        "node_modules"
     ],
     "angularCompilerOptions": {
         "entryModule": "server-side-rendering/root-server-module#RootServerModule",

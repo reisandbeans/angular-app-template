@@ -1,17 +1,20 @@
 import '@init';
+import { Application } from 'express';
 import { logger } from '@logger';
 import { buildApp } from './config/app-setup';
 import { startServer } from './config/http-server';
 
-const app = buildApp();
+const app: Application = buildApp();
 
 export function run() {
     return startServer(app)
-        .then(() => {})
+        .then(() => app)
         .catch((error: any) => {
             logger.error('Error while bootstrapping application', error);
             throw error;
         });
 }
 
-run();
+if (require.main === module) {
+    run();
+}

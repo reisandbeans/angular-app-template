@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`api.spec.ts Should return a 404 error if the request resource is not found 1`] = `
+Object {
+  "code": "entityNotFound",
+  "message": "Resource not found",
+}
+`;

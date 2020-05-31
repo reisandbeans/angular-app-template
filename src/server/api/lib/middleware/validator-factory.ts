@@ -6,7 +6,7 @@ export const defaultAjvOptions: AjvOptions = {
     coerceTypes: true,
     format: 'full',
     useDefaults: true,
-}
+};
 
 const ajv = new Ajv(defaultAjvOptions);
 const options: ValidatorOptions = { ajv };

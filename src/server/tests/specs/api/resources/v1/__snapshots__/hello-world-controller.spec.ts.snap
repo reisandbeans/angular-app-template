@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`hello-world-controller.spec.ts [POST] /api/v1/hello-world Should return a 200 response 1`] = `
+Object {
+  "data": Object {
+    "sender": "foo",
+  },
+  "success": true,
+}
+`;
+
+exports[`hello-world-controller.spec.ts [POST] /api/v1/hello-world Should return a 400 error if the parameter is not a string 1`] = `
+Object {
+  "code": "invalidParameters",
+  "errors": Array [
+    Object {
+      "code": "invalidParameters",
+      "field": "body.sender",
+      "message": "should NOT be shorter than 1 characters",
+    },
+  ],
+  "message": "Invalid parameters provided",
+}
+`;
+
+exports[`hello-world-controller.spec.ts [POST] /api/v1/hello-world Should return a 400 error if the required parameters are not provided 1`] = `
+Object {
+  "code": "invalidParameters",
+  "errors": Array [
+    Object {
+      "code": "missingRequiredParameter",
+      "field": "body",
+      "message": "should have required property 'sender'",
+    },
+  ],
+  "message": "Invalid parameters provided",
+}
+`;

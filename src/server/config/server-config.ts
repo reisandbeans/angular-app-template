@@ -7,6 +7,7 @@ import { envSchema, argvSchema, ENV_VARS, ARG_VARS } from './server-config-schem
 class ServerConfig {
     readonly distFolderPath: string;
     readonly port: number;
+    readonly isProduction: boolean;
     readonly useShutdownHandler: boolean;
     readonly useSsr: boolean;
 
@@ -15,6 +16,7 @@ class ServerConfig {
 
         const mergedConfigs = this.mergeConfigs();
 
+        this.isProduction = process.env.NODE_ENV === 'production';
         this.port = mergedConfigs.port;
         this.useSsr = mergedConfigs.useSsr;
         this.useShutdownHandler = mergedConfigs.useShutdownHandler;

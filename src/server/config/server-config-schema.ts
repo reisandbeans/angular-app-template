@@ -1,6 +1,7 @@
 import { $enum } from 'ts-enum-util';
 
 enum EnvVars {
+    NodeEnv = 'NODE_ENV',
     Port = 'PORT',
     UseShutDownHandler = 'USE_SHUTDOWN_HANDLER',
     UseSsr = 'USE_SSR'
@@ -20,7 +21,7 @@ export const DEFAULTS = {
     port: 8080,
     useSsr: true,
     useShutdownHandler: false
-}
+};
 
 export const envSchema: object = {
     properties: {
