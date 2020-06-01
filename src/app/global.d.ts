@@ -1,1 +1,1 @@
-declare var process: { [key: string]: any };
+declare const process: { [key: string]: any };

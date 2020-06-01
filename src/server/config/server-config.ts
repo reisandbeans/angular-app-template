@@ -1,10 +1,10 @@
 import Ajv from 'ajv';
 import { camelCase, cloneDeep, mapKeys, pick } from 'lodash';
 import { resolve } from 'path';
-import { argv } from 'yargs';
+import { parse as parseArgv } from 'yargs';
 import { envSchema, argvSchema, ENV_VARS, ARG_VARS } from './server-config-schema';
 
-class ServerConfig {
+export class ServerConfig {
     readonly distFolderPath: string;
     readonly port: number;
     readonly isProduction: boolean;
@@ -30,7 +30,7 @@ class ServerConfig {
             useDefaults: true,
         });
         const relevantEnvVars = pick(process.env, ENV_VARS);
-        const argvCopy = pick(cloneDeep(argv), ARG_VARS);
+        const argvCopy = pick(cloneDeep(parseArgv()), ARG_VARS);
         this.validateEnv(ajv, relevantEnvVars);
         this.validateArgv(ajv, argvCopy);
 
@@ -54,7 +54,7 @@ class ServerConfig {
 
     private formatAjvError(errors: Ajv.ErrorObject[]) {
         // TODO add better error formatting
-        throw errors;
+        throw new Ajv.ValidationError(errors);
     }
 }
 

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`error-handler.spec.ts Should handle ajv-errors instances and return the appropriate mapped error 1`] = `
+Object {
+  "data": undefined,
+  "error": Object {
+    "code": "invalidParameters",
+    "errors": Array [
+      Object {
+        "code": "invalidParameters",
+        "field": "name",
+        "message": "should NOT be shorter than 3 characters",
+      },
+      Object {
+        "code": "invalidParameters",
+        "field": "age",
+        "message": "should be >= 1",
+      },
+      Object {
+        "code": "missingRequiredParameter",
+        "field": "city",
+        "message": "should have required property 'city'",
+      },
+    ],
+    "message": "Invalid parameters provided",
+  },
+}
+`;
+
+exports[`error-handler.spec.ts Should handle generic errors and return the appropriate mapped error 1`] = `
+Object {
+  "data": undefined,
+  "error": Object {
+    "code": "unexpectedError",
+    "errors": Array [
+      Object {
+        "code": "unexpectedError",
+        "field": "originalError",
+        "message": "Some random error",
+      },
+    ],
+    "message": "Unexpected error",
+  },
+}
+`;

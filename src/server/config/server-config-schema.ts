@@ -39,7 +39,7 @@ export const envSchema: object = {
         }
     },
     type: 'object'
-}
+};
 
 export const argvSchema: object = {
     properties: {
@@ -54,4 +54,4 @@ export const argvSchema: object = {
         }
     },
     type: 'object'
-}
+};

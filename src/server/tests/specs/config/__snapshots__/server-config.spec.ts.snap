@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`server-config.spec.ts Should throw an error if invalid arg vars are provided 1`] = `"validation failed"`;
+
+exports[`server-config.spec.ts Should throw an error if invalid env vars are provided 1`] = `"validation failed"`;

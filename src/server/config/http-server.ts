@@ -4,7 +4,7 @@ import { logger } from '@logger';
 import { serverConfig } from './server-config';
 import { registerShutdownHandler } from './shutdown-handler';
 
-export function startServer(app: Application) {
+export function startServer(app: Application): Promise<http.Server> {
     const server = http.createServer(app);
     const { port, useShutdownHandler } = serverConfig;
 
@@ -19,7 +19,7 @@ export function startServer(app: Application) {
 
         server.on('error', (error: any) => {
             logger.error('HTTP Server error:', error);
-            throw error(error);
+            throw error;
         });
     });
 }

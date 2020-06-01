@@ -31,6 +31,9 @@
         "./index.ts",
         "./server-side-rendering/server-main.ts"
     ],
+    "include": [
+        "./**/*.d.ts"
+    ],
     "exclude": [
         "node_modules"
     ],

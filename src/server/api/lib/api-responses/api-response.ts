@@ -52,7 +52,7 @@ export class ApiResponse {
 
     static ServerError(error: any) {
         const errors: ErrorDetail[] = [{
-            code: '',
+            code: ErrorCode.UnexpectedError,
             message: error.message,
             field: 'originalError',
         }];
@@ -64,7 +64,7 @@ export class ApiResponse {
         return this.status < 400;
     }
 
-    private toJson() {
+    toJson() {
         return {
             data: this.data,
             error: this.error.toJson(),
