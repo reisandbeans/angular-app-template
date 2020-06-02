@@ -71,7 +71,9 @@
         "ts-jest": "^26.0.0",
         "ts-node": "~8.3.0",
         "tslint": "~6.1.0",
-        "typescript": "~3.8.3"
+        "ttypescript": "^1.5.10",
+        "typescript": "~3.8.3",
+        "typescript-transform-paths": "^1.1.14"
     },
     "scripts": {
         "build": "npm run build:client && npm run build:server",
@@ -79,11 +81,14 @@
         "build:client": "ng run app:build-client",
         "build:client:production": "ng run app:build-client:production",
         "build:server": "ng run app:build-server",
+        "build:server:no-webpack": "npm run clean:server && ttsc --project src/server/tsconfig.server.json",
         "build:server:production": "ng run app:build-server:production",
+        "clean:server": "rm -rf ./dist/server",
         "coverage": "jest --coverage",
         "test": "jest",
         "serve:client": "ng run app:serve-client",
         "serve:server": "node dist/server/main.js",
+        "serve:server:no-webpack": "npm run build:server:no-webpack && node dist/server/out-tsc/server/index.js --useSsr=false",
         "serve": "ng run app:serve"
     },
     "license": "ISC",

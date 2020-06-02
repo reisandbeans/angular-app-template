@@ -1,6 +1,10 @@
-import 'zone.js/dist/zone-node';
 import { config as configEnv } from 'dotenv';
 
 configEnv();
 
-import '../server-side-rendering/server-main';
+import { serverConfig } from '@server/config/server-config';
+
+if (serverConfig.useSsr) {
+    require('zone.js/dist/zone-node');
+    require('../server-side-rendering/server-main');
+}

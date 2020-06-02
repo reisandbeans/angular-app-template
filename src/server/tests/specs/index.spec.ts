@@ -1,15 +1,22 @@
-import axios from 'axios';
-import { serverConfig } from '@server/config/server-config';
 import { run } from '@server/index';
+import { buildApp } from '@server/config/app-setup';
+import { startServer } from '@server/config/http-server';
+
+jest.mock('@server/config/http-server');
+jest.mock('@server/config/app-setup');
 
 describe('index.spec.ts', () => {
-
     it('Should start the server and listen on the default port', async () => {
-        const { server } = await run();
+        const mockApp = { foo: 'bar' };
+        const mockServer = { baz: 'foo'};
 
-        const apiResponse = await axios.get(`http://localhost:${serverConfig.port}/api/health-check`);
-        expect(apiResponse.status).toBe(200);
+        (buildApp as jest.Mock).mockReturnValue(mockApp);
+        (startServer as jest.Mock).mockResolvedValue(mockServer);
 
-        server.close();
+        const { server, app } = await run();
+
+        expect(server).toBe(mockServer);
+        expect(app).toBe(mockApp);
+        expect(startServer).toHaveBeenCalledWith(mockApp);
     });
 });
