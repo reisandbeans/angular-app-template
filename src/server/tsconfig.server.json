@@ -13,7 +13,7 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "noImplicitAny": true,
-        "outDir": "../../dist/server/out-tsc",
+        "outDir": "../../dist",
         "paths": {
             "@client/*": ["../app/*"],
             "@environments/*": ["../environments/*"],
@@ -33,7 +33,7 @@
         "types": ["node"]
     },
     "files": [
-        "./index.ts",
+        "./main.ts",
         "./server-side-rendering/server-main.ts"
     ],
     "include": [

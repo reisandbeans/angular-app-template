@@ -88,7 +88,7 @@
         "test": "jest",
         "serve:client": "ng run app:serve-client",
         "serve:server": "node dist/server/main.js",
-        "serve:server:no-webpack": "npm run build:server:no-webpack && node dist/server/out-tsc/server/index.js --useSsr=false",
+        "serve:server:no-webpack": "npm run build:server:no-webpack && node dist/server/main.js --useSsr=false",
         "serve": "ng run app:serve"
     },
     "license": "ISC",

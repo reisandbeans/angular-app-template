@@ -10,7 +10,6 @@ enum EnvVars {
 enum ArgVars {
     Port = 'port',
     UseShutDownHandler = 'useShutdownHandler',
-    UseSsr = 'useSsr'
 }
 
 export const ENV_VARS = $enum(EnvVars).getValues();
@@ -49,9 +48,6 @@ export const argvSchema: object = {
         [ArgVars.UseShutDownHandler]: {
             type: 'boolean',
         },
-        [ArgVars.UseSsr]: {
-            type: 'boolean',
-        }
     },
     type: 'object'
 };

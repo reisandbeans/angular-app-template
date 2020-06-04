@@ -1,18 +1,14 @@
 const { config: configEnv } = require('dotenv');
-const { pick } = require('lodash');
 const webpack = require('webpack');
 
-const whitelist = ['API_URL', 'USE_SSR'];
 configEnv();
 
-const envVarsToExpose = pick(process.env, whitelist);
+const turnSsrOff = String(process.env.USE_SSR).toLowerCase() === 'false';
 
 module.exports = {
     plugins: [
         new webpack.DefinePlugin({
-            process: {
-                env: envVarsToExpose
-            }
+            'process.env.USE_SSR': String(!turnSsrOff)
         }),
     ],
 };
