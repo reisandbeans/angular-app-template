@@ -178,6 +178,7 @@
                     "^@logger$": "<rootDir>/src/server/lib/logger.ts",
                     "^@server/(.*)$": "<rootDir>/src/server/$1",
                     "^@tests/(.*)$": "<rootDir>/src/server/tests/$1",
+                    "^@test-mocks/(.*)$": "<rootDir>/src/server/tests/__mocks__/$1",
                     "^@test-lib/(.*)$": "<rootDir>/src/server/tests/lib/$1"
                 },
                 "rootDir": "./",

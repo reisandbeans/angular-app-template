@@ -20,7 +20,8 @@
             "@logger": ["lib/logger"],
             "@init": ["config/init"],
             "@server/*": ["./*"],
-            "@test-lib/*": ["tests/lib/*"]
+            "@test-lib/*": ["tests/lib/*"],
+            "@test-mocks/*": ["tests/__mocks__/*"]
         },
         "plugins": [
             {
@@ -36,11 +37,8 @@
         "./main.ts",
         "./server-side-rendering/server-main.ts"
     ],
-    "include": [
-        "./**/*.d.ts"
-    ],
     "exclude": [
-        "./**/*.spec.ts",
+        "./tests",
         "node_modules"
     ],
     "angularCompilerOptions": {

@@ -2,7 +2,7 @@ module.exports = {
     "extends": "../../.eslintrc",
     "overrides": [
         {
-            "files": ["./**/*.ts"],
+            "files": ["tests/**/*.ts"],
             "parserOptions": {
                 "project": 'src/server/tests/tsconfig.spec.json',
             },
