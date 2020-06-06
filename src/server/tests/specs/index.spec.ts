@@ -1,4 +1,4 @@
-import { run } from '@server/index';
+import { run } from '@server/main';
 import { buildApp } from '@server/config/app-setup';
 import { startServer } from '@server/config/http-server';
 

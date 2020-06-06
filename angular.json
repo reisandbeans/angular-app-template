@@ -121,9 +121,10 @@
                         "browserTarget": "client:build"
                     }
                 },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
+                "lint-client": {
+                    "builder": "@angular-eslint/builder:lint",
                     "options": {
+                        "eslintConfig": "./src/app/.eslintrc.js",
                         "tsConfig":[
                             "tsconfig.app.json",
                             "tsconfig.spec.json",
