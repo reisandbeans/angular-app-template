@@ -3,6 +3,6 @@
 exports[`api.spec.ts Should return a 404 error if the request resource is not found 1`] = `
 Object {
   "code": "entityNotFound",
-  "message": "Resource not found",
+  "message": "URL /v1/some-random-endpoint does not exist",
 }
 `;

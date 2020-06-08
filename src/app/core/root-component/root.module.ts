@@ -6,17 +6,13 @@ import { RootComponent } from './root.component';
 
 const { appId, useSsr } = environment as any;
 
-const browserModule = useSsr ?
-    BrowserModule.withServerTransition({ appId }) :
-    BrowserModule;
+/* istanbul ignore next */
+const browserModule = useSsr ? BrowserModule.withServerTransition({ appId }) : BrowserModule;
 
 @NgModule({
     bootstrap: [RootComponent],
     declarations: [RootComponent],
-    imports: [
-        RootRoutingModule,
-        browserModule,
-    ],
+    imports: [RootRoutingModule, browserModule],
     providers: [],
 })
 export class RootModule {}

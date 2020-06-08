@@ -69,12 +69,10 @@
         "@typescript-eslint/parser": "2.31.0",
         "codelyzer": "^5.1.2",
         "eslint": "^6.8.0",
-        "eslint-config-prettier": "^6.11.0",
         "eslint-plugin-import": "^2.20.2",
         "eslint-plugin-jest": "^23.13.2",
         "eslint-plugin-jsdoc": "^27.0.4",
         "eslint-plugin-prefer-arrow": "^1.2.1",
-        "eslint-plugin-prettier": "^3.1.3",
         "husky": "^4.2.5",
         "jasmine-core": "~3.5.0",
         "jasmine-spec-reporter": "~4.2.1",
@@ -83,7 +81,6 @@
         "jest-when": "^2.7.1",
         "lint-staged": "^10.2.9",
         "lolex": "^6.0.0",
-        "prettier": "^2.0.5",
         "protractor": "~5.4.3",
         "supertest": "^4.0.2",
         "ts-jest": "^26.0.0",
@@ -155,6 +152,19 @@
                         ]
                     }
                 },
+                "moduleNameMapper": {
+                    "^@constants/(.*)$": "<rootDir>/src/app/shared/constants/$1",
+                    "^@core/(.*)$": "<rootDir>/src/app/core/$1",
+                    "^@environments/(.*)$": "<rootDir>/src/environments/$1",
+                    "^@exceptions/(.*)$": "<rootDir>/src/app/shared/exceptions/$1",
+                    "^@interfaces/(.*)$": "<rootDir>/src/app/shared/interfaces/$1",
+                    "^@modules/(.*)$": "<rootDir>/src/app/modules/$1",
+                    "^@pipes/(.*)$": "<rootDir>/src/app/shared/pipes/$1",
+                    "^@root/(.*)$": "<rootDir>/src/app/$1",
+                    "^@shared/(.*)$": "<rootDir>/src/app/shared/$1",
+                    "^@util/(.*)$": "<rootDir>/src/app/shared/util/$1",
+                    "^@validators/(.*)$": "<rootDir>/src/app/shared/validators/$1"
+                },
                 "preset": "jest-preset-angular",
                 "rootDir": "./",
                 "roots": [
@@ -201,13 +211,5 @@
         "*.{js,ts}": [
             "eslint --fix"
         ]
-    },
-    "prettier": {
-        "bracketSpacing": true,
-        "printWidth": 100,
-        "semi": true,
-        "singleQuote": true,
-        "trailingComma": "all",
-        "tabWidth": 4
     }
 }

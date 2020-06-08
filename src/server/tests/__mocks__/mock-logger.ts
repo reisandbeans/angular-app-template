@@ -1,16 +1,23 @@
+function createLogger() {
+    const logger: any = {
+        error: jest.fn().mockImplementation(() => logger),
+        debug: jest.fn().mockImplementation(() => logger),
+        info: jest.fn().mockImplementation(() => logger),
+        warn: jest.fn().mockImplementation(() => logger),
+    };
+    return logger;
+}
+
 jest.mock('winston', () => ({
-    createLogger: () => ({
-        error: jest.fn(),
-        debug: jest.fn(),
-        info: jest.fn(),
-        warn: jest.fn(),
-    }),
+    child: createLogger,
+    createLogger,
     format: {
         colorize: jest.fn(),
         combine: jest.fn(),
-        timestamp: jest.fn(),
+        errors: jest.fn(),
         label: jest.fn(),
         printf: jest.fn(),
+        timestamp: jest.fn(),
     },
     transports: {
         Console: jest.fn(),

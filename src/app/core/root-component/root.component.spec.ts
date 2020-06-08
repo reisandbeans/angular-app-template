@@ -1,13 +1,28 @@
-import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
+import { PLATFORM_ID } from '@angular/core';
 import { RootComponent } from './root.component';
+import { TestBed } from '@angular/core/testing';
 
 describe('AppComponent', () => {
-    let spectator: Spectator<RootComponent>;
-    const createComponent = createComponentFactory(RootComponent);
-
-    beforeEach(() => spectator = createComponent());
+    function createComponent(providers: any[]) {
+        TestBed.configureTestingModule({
+            providers,
+            declarations: [RootComponent],
+        });
+        return TestBed.createComponent(RootComponent);
+    }
 
     it('Should have the hello world string as the content', () => {
-        expect(spectator.query('h1')).toContainText('Hello world!');
+        const component = createComponent([]);
+        expect(component.nativeElement.querySelector('h1').textContent).toBe('Hello world!');
+    });
+
+    it('Should indicate we are in the browser context', () => {
+        const component = createComponent([{ provide: PLATFORM_ID, useValue: 'browser' }]);
+        expect(component.componentInstance.platform).toBe('Browser');
+    });
+
+    it('Should indicate we are in the server context', () => {
+        const component = createComponent([{ provide: PLATFORM_ID, useValue: 'server' }]);
+        expect(component.componentInstance.platform).toBe('Server');
     });
 });

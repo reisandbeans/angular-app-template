@@ -1,6 +1,7 @@
 import { serverConfig } from '@server/config/server-config';
+import { ErrorCode } from '@server/lib/exceptions/error-code';
 
-export class ApiError extends Error {
+export class ApplicationError extends Error {
     readonly code: ErrorCode;
     readonly message: string;
     readonly errors?: ErrorDetail[];
@@ -16,10 +17,10 @@ export class ApiError extends Error {
         const errorObject: { [key: string]: any } = {
             code: this.code,
             message: this.message,
-            errors: this.errors
+            errors: this.errors,
         };
 
-        if (serverConfig.isProduction) {
+        if (!serverConfig.isProduction) {
             errorObject.stack = this.stack;
         }
 
@@ -32,21 +33,3 @@ export interface ErrorDetail {
     code: string;
     message: string;
 }
-
-export const enum ErrorMessages {
-    Forbidden = 'You don\'t have access to the requested resource',
-    InvalidParameters = 'Invalid parameters provided',
-    NotFound = 'Resource not found',
-    Unauthorized = 'Authentication required',
-    UnexpectedError = 'Unexpected error',
-}
-
-export enum ErrorCode {
-    EntityNotFound = 'entityNotFound',
-    Forbidden = 'accessDenied',
-    InvalidParameters = 'invalidParameters',
-    MissingRequiredParameter = 'missingRequiredParameter',
-    Unauthorized = 'authenticationRequired',
-    UnexpectedError= 'unexpectedError',
-}
-

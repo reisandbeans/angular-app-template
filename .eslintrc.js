@@ -7,8 +7,6 @@ module.exports = {
     "extends": [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        'prettier/@typescript-eslint',
-        'plugin:prettier/recommended',
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -110,7 +108,7 @@ module.exports = {
             }
         ],
         "@typescript-eslint/unified-signatures": "error",
-        "arrow-body-style": "error",
+        "arrow-body-style": "off",
         "camelcase": "error",
         "complexity": "off",
         "constructor-super": "error",

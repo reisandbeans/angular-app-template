@@ -16,13 +16,14 @@
         "noImplicitAny": true,
         "outDir": "../../dist/client/out-tsc",
         "paths": {
-            "@constants/*": ["src/app/constants/*"],
+            "@constants/*": ["shared/constants/*"],
             "@core/*": ["core/*"],
             "@environments/*": ["../environments/*"],
             "@exceptions/*": ["shared/exceptions/*"],
             "@interfaces/*": ["shared/interfaces/*"],
             "@modules/*": ["modules/*"],
             "@pipes/*": ["shared/pipes/*"],
+            "@root/*": ["./*"],
             "@shared/*": ["shared/*"],
             "@util/*": ["shared/util/*"],
             "@validators/*": ["shared/validators/*"]

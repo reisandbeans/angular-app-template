@@ -6,13 +6,15 @@ import { envSchema, argvSchema, ENV_VARS, ARG_VARS } from './server-config-schem
 
 export class ServerConfig {
     readonly distFolderPath: string;
-    readonly port: number;
     readonly isProduction: boolean;
+    readonly label: string;
+    readonly port: number;
     readonly useShutdownHandler: boolean;
     readonly useSsr: boolean;
 
     constructor() {
         this.distFolderPath = resolve(process.cwd(), './dist/client');
+        this.label = 'angular-app-template';
 
         const mergedConfigs = this.mergeConfigs();
 

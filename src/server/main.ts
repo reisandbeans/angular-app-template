@@ -5,7 +5,7 @@ import { startServer } from './config/http-server';
 
 export function run() {
     const app: Application = buildApp();
-    return startServer(app).then(server => ({ app, server }));
+    return startServer(app).then((server) => ({ app, server }));
 }
 
 /* istanbul ignore if */

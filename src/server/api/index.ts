@@ -1,13 +1,16 @@
 import { Router, Response, Request } from 'express';
-import { ApiResponse } from '@server/api/lib/api-responses/api-response';
 import { mount as mountHealthCheck } from './health-check';
 import { mount as mountApiV1 } from './v1';
+import { entityNotFound } from '@server/lib/exceptions/application-exceptions';
+import { errorHandler } from '@server/api/lib/middleware/error-handler';
 
 export function mount(router: Router) {
     mountHealthCheck(router);
     mountApiV1(router);
 
     router.all('*', (req: Request, res: Response) => {
-        ApiResponse.NotFound().send(res);
+        throw entityNotFound(`URL ${req.url} does not exist`);
     });
+
+    router.use(errorHandler);
 }

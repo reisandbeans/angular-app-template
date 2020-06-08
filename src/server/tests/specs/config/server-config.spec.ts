@@ -53,8 +53,6 @@ describe('server-config.spec.ts', () => {
         process.argv = concat(process.argv, [
             '--port',
             '8282',
-            '--useSsr',
-            'false',
             '--useShutdownHandler',
             'true'
         ]);
@@ -63,7 +61,6 @@ describe('server-config.spec.ts', () => {
 
         expect(config.port).toBe(8282);
         expect(config.useShutdownHandler).toBe(true);
-        expect(config.useSsr).toBe(false);
     });
 
     it('Should use default configs if nothing is provided', () => {

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`api-response.spec.ts Should create a 200 success response 1`] = `
+Object {
+  "data": undefined,
+  "error": undefined,
+}
+`;
+
+exports[`api-response.spec.ts Should create a 200 success response with the provided data 1`] = `
+Object {
+  "data": Object {
+    "foo": "bar",
+  },
+  "error": undefined,
+}
+`;
+
+exports[`api-response.spec.ts Should create a 201 created response 1`] = `
+Object {
+  "data": undefined,
+  "error": undefined,
+}
+`;
+
+exports[`api-response.spec.ts Should create a 201 created response with the provided data 1`] = `
+Object {
+  "data": Object {
+    "foo": "bar",
+  },
+  "error": undefined,
+}
+`;
+
+exports[`api-response.spec.ts Should create a 204 no-content response 1`] = `
+Object {
+  "data": undefined,
+  "error": undefined,
+}
+`;
+
+exports[`api-response.spec.ts Should create a 429 too many requests response 1`] = `
+Object {
+  "data": undefined,
+  "error": undefined,
+}
+`;

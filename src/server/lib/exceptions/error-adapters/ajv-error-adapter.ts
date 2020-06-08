@@ -1,10 +1,20 @@
 import ajv, { ErrorObject } from 'ajv';
 import { get, map } from 'lodash';
-import { ApiError, ErrorCode, ErrorDetail, ErrorMessages } from './api-error';
-import { ApiResponse } from './api-response';
+import { ErrorCode } from '@server/lib/exceptions/error-code';
+import { ErrorMessages } from '@server/lib/exceptions/error-messages';
+import { ApplicationError, ErrorDetail } from '../application-error';
+import { ErrorAdapter } from './error-adapter';
 
 const keywordMap: { [key: string]: ErrorCode | undefined } = {
     required: ErrorCode.MissingRequiredParameter,
+};
+
+export const toApplicationError: ErrorAdapter = (ajvError: ajv.ValidationError) => {
+    return new ApplicationError(
+        ErrorCode.InvalidParameters,
+        ErrorMessages.InvalidParameters,
+        map(ajvError.errors, mapAjvError),
+    );
 };
 
 function mapAjvError(ajvError: ErrorObject): ErrorDetail {
@@ -22,14 +32,5 @@ function mapAjvError(ajvError: ErrorObject): ErrorDetail {
         code,
         message,
         field: fieldName,
-    };
-}
-
-export function fromAjvError(ajvError: ajv.ValidationError): ApiResponse {
-    const apiError = new ApiError(
-        ErrorCode.InvalidParameters,
-        ErrorMessages.InvalidParameters,
-        map(ajvError.errors, mapAjvError)
-    );
-    return ApiResponse.BadRequest(apiError);
+    } as ErrorDetail;
 }

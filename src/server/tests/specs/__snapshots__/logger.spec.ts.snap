@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`logger.spec.ts Should create a child logger with the provided prefix 1`] = `
+"2020-06-07T00:28:53.594Z [angular-app-template] [UnitTest] - [32minfo[39m: Lorem ipsum
+"
+`;
+
+exports[`logger.spec.ts Should log the message in the expected format 1`] = `
+"2020-06-07T00:28:53.594Z [angular-app-template] - [32minfo[39m: Lorem ipsum
+"
+`;

@@ -1,14 +1,18 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
 import { RootModule } from '@core/root-component/root.module';
 import { environment } from '@environments/environment';
 
-if (environment.production) {
+const { production, useSsr } = environment as any;
+
+if (production) {
     enableProdMode();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    platformBrowserDynamic().bootstrapModule(RootModule)
-        .catch(err => console.error(err));
-});
+if (useSsr) {
+    document.addEventListener('DOMContentLoaded', () => {
+        platformBrowserDynamic().bootstrapModule(RootModule);
+    });
+} else {
+    platformBrowserDynamic().bootstrapModule(RootModule);
+}

@@ -10,7 +10,7 @@ module.exports = {
     ],
     "overrides": [
         {
-            "files": ["tests/**/*.ts"],
+            "files": ["./**/*.spec.ts"],
             "parserOptions": {
                 "project": 'src/app/tests/tsconfig.spec.json',
             },

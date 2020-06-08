@@ -2,8 +2,6 @@ import { Request, RequestHandler, Response } from 'express';
 import { APP_BASE_HREF } from '@angular/common';
 import { serverConfig } from './server-config';
 
-const { useSsr, distFolderPath } = serverConfig;
-
 export function renderIndex(req: Request, res: Response) {
     res.render('index', {
         req,
@@ -12,9 +10,10 @@ export function renderIndex(req: Request, res: Response) {
 }
 
 export function sendIndex(req: Request, res: Response) {
+    const { distFolderPath } = serverConfig;
     res.sendFile(`${distFolderPath}/index.html`);
 }
 
 export function getRenderer(): RequestHandler {
-    return useSsr ? renderIndex : sendIndex;
+    return serverConfig.useSsr ? renderIndex : sendIndex;
 }
