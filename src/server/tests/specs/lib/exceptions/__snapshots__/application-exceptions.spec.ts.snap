@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`application-exceptions.spec.ts #InsufficientPrivilegesError Should create an InsufficientPrivilegesError with default properties 1`] = `
+Object {
+  "code": "accessDenied",
+  "errors": undefined,
+  "message": "You don't have access to the requested resource",
+}
+`;
+
+exports[`application-exceptions.spec.ts #InsufficientPrivilegesError Should create an InsufficientPrivilegesError with the provided error message 1`] = `
+Object {
+  "code": "accessDenied",
+  "errors": undefined,
+  "message": "Lorem ipsum sit amet",
+}
+`;
+
+exports[`application-exceptions.spec.ts #InvalidParametersError Should create an InvalidParametersError with the provided error detail 1`] = `
+Object {
+  "code": "invalidParameters",
+  "errors": Array [
+    Object {
+      "code": "missingRequiredParameter",
+      "field": "name",
+      "message": "Parameter name is required",
+    },
+  ],
+  "message": "Invalid parameters provided",
+}
+`;
+
+exports[`application-exceptions.spec.ts #InvalidParametersError Should create an InvalidParametersError with the provided error details 1`] = `
+Object {
+  "code": "invalidParameters",
+  "errors": Array [
+    Object {
+      "code": "missingRequiredParameter",
+      "field": "firstName",
+      "message": "Parameter firstName is required",
+    },
+    Object {
+      "code": "missingRequiredParameter",
+      "field": "lastName",
+      "message": "Parameter lastName is required",
+    },
+  ],
+  "message": "Invalid parameters provided",
+}
+`;
+
+exports[`application-exceptions.spec.ts #InvalidParametersError Should create an InvalidParametersError with the provided error message 1`] = `
+Object {
+  "code": "invalidParameters",
+  "errors": Array [],
+  "message": "Lorem ipsum si amet",
+}
+`;
+
+exports[`application-exceptions.spec.ts #NotFoundError Should create a NotFoundError with default properties 1`] = `
+Object {
+  "code": "entityNotFound",
+  "errors": undefined,
+  "message": "Resource not found",
+}
+`;
+
+exports[`application-exceptions.spec.ts #NotFoundError Should create a NotFoundError with the provided error message 1`] = `
+Object {
+  "code": "entityNotFound",
+  "errors": undefined,
+  "message": "Lorem ipsum sit amet",
+}
+`;
+
+exports[`application-exceptions.spec.ts #UnauthorizedError Should create an UnauthorizedError with default properties 1`] = `
+Object {
+  "code": "authenticationRequired",
+  "errors": undefined,
+  "message": "Authentication required",
+}
+`;
+
+exports[`application-exceptions.spec.ts #UnauthorizedError Should create an UnauthorizedError with the provided error message 1`] = `
+Object {
+  "code": "authenticationRequired",
+  "errors": undefined,
+  "message": "Lorem ipsum sit amet",
+}
+`;
+
+exports[`application-exceptions.spec.ts #UnexpectedError Should create an UnexpectedError from the provided error 1`] = `
+Object {
+  "code": "unexpectedError",
+  "errors": Array [
+    Object {
+      "code": "unexpectedError",
+      "field": "originalError",
+      "message": "Lorem ipsum sit amet",
+    },
+  ],
+  "message": "Unexpected error",
+}
+`;

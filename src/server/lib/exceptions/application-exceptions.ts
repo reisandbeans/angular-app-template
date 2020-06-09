@@ -1,49 +1,77 @@
+import statusCodes from 'http-status-codes';
 import { isArray } from 'lodash';
 import { ApplicationError, ErrorDetail } from './application-error';
 import { ErrorCode } from '@server/lib/exceptions/error-code';
 import { ErrorMessages } from '@server/lib/exceptions/error-messages';
 
-export function invalidParameters(details: ErrorDetail | ErrorDetail[], message?: string): ApplicationError {
-    const normalizedErrors = isArray(details) ? details : [details];
-    return new ApplicationError(
-        ErrorCode.InvalidParameters,
-        message || ErrorMessages.InvalidParameters,
-        normalizedErrors,
-    );
+export class InvalidParametersError extends ApplicationError {
+    constructor(details: ErrorDetail | ErrorDetail[], message?: string) {
+        const normalizedErrors = isArray(details) ? details : [details];
+        super(
+            ErrorCode.InvalidParameters,
+            message || ErrorMessages.InvalidParameters,
+            normalizedErrors,
+        );
+    }
+
+    getHttpStatusCode(): any {
+        return statusCodes.BAD_REQUEST;
+    }
 }
 
-export function entityNotFound(message?: string): ApplicationError {
-    return new ApplicationError(
-        ErrorCode.EntityNotFound,
-        message || ErrorMessages.NotFound,
-    );
+export class NotFoundError extends ApplicationError {
+    constructor(message?: string) {
+        super(
+            ErrorCode.EntityNotFound,
+            message || ErrorMessages.NotFound,
+        );
+    }
+
+    getHttpStatusCode(): any {
+        return statusCodes.NOT_FOUND;
+    }
 }
 
-export function unauthorized(): ApplicationError {
-    return new ApplicationError(
-        ErrorCode.Unauthorized,
-        ErrorMessages.Unauthorized,
-    );
+export class UnauthorizedError extends ApplicationError {
+    constructor(message?: string) {
+        super(
+            ErrorCode.Unauthorized,
+            message || ErrorMessages.Unauthorized,
+        );
+    }
+
+    getHttpStatusCode(): any {
+        return statusCodes.UNAUTHORIZED;
+    }
 }
 
-export function permissionDenied(message?: string): ApplicationError {
-    return new ApplicationError(
-        ErrorCode.Forbidden,
-        message || ErrorMessages.Forbidden,
-    );
+export class InsufficientPrivilegesError extends ApplicationError {
+    constructor(message?: string) {
+        super(
+            ErrorCode.Forbidden,
+            message || ErrorMessages.Forbidden,
+        );
+    }
+
+    getHttpStatusCode(): any {
+        return statusCodes.FORBIDDEN;
+    }
 }
 
-export function unexpectedError(error: any): ApplicationError {
-    const errors: ErrorDetail[] = [
-        {
-            code: ErrorCode.UnexpectedError,
-            message: error.message,
-            field: 'originalError',
-        },
-    ];
-    return new ApplicationError(
-        ErrorCode.UnexpectedError,
-        ErrorMessages.UnexpectedError,
-        errors,
-    );
+export class UnexpectedError extends ApplicationError {
+    constructor(error: any) {
+        const errors: ErrorDetail[] = [
+            {
+                code: ErrorCode.UnexpectedError,
+                message: error.message,
+                field: 'originalError',
+            },
+        ];
+        super(
+            ErrorCode.UnexpectedError,
+            ErrorMessages.UnexpectedError,
+            errors,
+        );
+    }
 }
+

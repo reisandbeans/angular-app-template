@@ -1,6 +1,6 @@
 import Ajv from 'ajv';
 import { errorHandler } from '@server/api/lib/middleware/error-handler';
-import { entityNotFound } from '@server/lib/exceptions/application-exceptions';
+import { NotFoundError } from '@server/lib/exceptions';
 import { testError } from '@test-lib/util';
 
 describe('error-handler.spec.ts', () => {
@@ -8,7 +8,7 @@ describe('error-handler.spec.ts', () => {
 
     beforeEach(() => {
         mockResponse = {
-            status: jest.fn().mockImplementation(function () {
+            status: jest.fn().mockImplementation(function() {
                 return this;
             }),
             json: jest.fn(),
@@ -23,7 +23,7 @@ describe('error-handler.spec.ts', () => {
     }
 
     it('Should handle application errors', () => {
-        const applicationError = entityNotFound('Entity 1234 was not found');
+        const applicationError = new NotFoundError('Entity 1234 was not found');
         errorHandler(applicationError, {} as any, mockResponse, () => {});
         assertError(404);
     });

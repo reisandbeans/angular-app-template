@@ -1,5 +1,6 @@
 import { serverConfig } from '@server/config/server-config';
 import { ErrorCode } from '@server/lib/exceptions/error-code';
+import statusCodes from 'http-status-codes';
 
 export class ApplicationError extends Error {
     readonly code: ErrorCode;
@@ -11,6 +12,10 @@ export class ApplicationError extends Error {
         this.code = code;
         this.message = message;
         this.errors = errors;
+    }
+
+    getHttpStatusCode() {
+        return statusCodes.INTERNAL_SERVER_ERROR;
     }
 
     toJson() {

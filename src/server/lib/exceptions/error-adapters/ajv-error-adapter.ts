@@ -1,8 +1,7 @@
 import ajv, { ErrorObject } from 'ajv';
 import { get, map } from 'lodash';
 import { ErrorCode } from '@server/lib/exceptions/error-code';
-import { ErrorMessages } from '@server/lib/exceptions/error-messages';
-import { ApplicationError, ErrorDetail } from '../application-error';
+import { InvalidParametersError, ErrorDetail } from '@server/lib/exceptions';
 import { ErrorAdapter } from './error-adapter';
 
 const keywordMap: { [key: string]: ErrorCode | undefined } = {
@@ -10,9 +9,7 @@ const keywordMap: { [key: string]: ErrorCode | undefined } = {
 };
 
 export const toApplicationError: ErrorAdapter = (ajvError: ajv.ValidationError) => {
-    return new ApplicationError(
-        ErrorCode.InvalidParameters,
-        ErrorMessages.InvalidParameters,
+    return new InvalidParametersError(
         map(ajvError.errors, mapAjvError),
     );
 };

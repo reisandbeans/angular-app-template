@@ -1,28 +1,34 @@
 import { PLATFORM_ID } from '@angular/core';
 import { RootComponent } from './root.component';
 import { TestBed } from '@angular/core/testing';
+import { Spectator } from '@ngneat/spectator';
+import { createComponentFactory } from '@ngneat/spectator/jest';
 
 describe('AppComponent', () => {
-    function createComponent(providers: any[]) {
-        TestBed.configureTestingModule({
-            providers,
-            declarations: [RootComponent],
-        });
-        return TestBed.createComponent(RootComponent);
-    }
+    const createComponent = createComponentFactory({
+        component: RootComponent,
+        providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
+    });
+
+    let spectator: Spectator<RootComponent>;
 
     it('Should have the hello world string as the content', () => {
-        const component = createComponent([]);
-        expect(component.nativeElement.querySelector('h1').textContent).toBe('Hello world!');
+        const component = createComponent();
+        expect(component.query('h1')).toHaveText('Hello world');
     });
 
     it('Should indicate we are in the browser context', () => {
-        const component = createComponent([{ provide: PLATFORM_ID, useValue: 'browser' }]);
-        expect(component.componentInstance.platform).toBe('Browser');
+        spectator = createComponent({
+            providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
+        });
+        expect(spectator.component.platform).toBe('Browser');
     });
 
     it('Should indicate we are in the server context', () => {
-        const component = createComponent([{ provide: PLATFORM_ID, useValue: 'server' }]);
-        expect(component.componentInstance.platform).toBe('Server');
+        spectator = createComponent({
+            providers: [{ provide: PLATFORM_ID, useValue: 'server' }],
+        });
+        // this test fails. Platform is still browser.
+        expect(spectator.component.platform).toBe('Server');
     });
 });

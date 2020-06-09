@@ -1,7 +1,6 @@
 import * as HttpStatusCodes from 'http-status-codes';
 import { Response } from 'express';
 import { ApplicationError } from '@server/lib/exceptions/application-error';
-import { getStatusForErrorCode } from '@server/api/lib/api-responses/error-code-status-map';
 
 export class ApiResponse {
     readonly status: number;
@@ -33,7 +32,7 @@ export class ApiResponse {
     }
 
     static fromApplicationError(error: ApplicationError) {
-        const status = getStatusForErrorCode(error.code);
+        const status = error.getHttpStatusCode();
         return new ApiResponse(status, undefined, error);
     }
 

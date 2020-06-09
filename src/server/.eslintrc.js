@@ -24,7 +24,6 @@ module.exports = {
         "project": "src/server/tsconfig.server.json",
         "sourceType": "module"
     },
-    "root": true,
     "rules": {
         "@typescript-eslint/dot-notation": "error"
     }
