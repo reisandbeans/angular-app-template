@@ -163,7 +163,7 @@
                 "moduleNameMapper": {
                     "^@constants/(.*)$": "<rootDir>/src/app/shared/constants/$1",
                     "^@core/(.*)$": "<rootDir>/src/app/core/$1",
-                    "^@environments/(.*)$": "<rootDir>/src/environments/$1",
+                    "^@environments/(.*)$": "<rootDir>/src/app/environments/$1",
                     "^@exceptions/(.*)$": "<rootDir>/src/app/shared/exceptions/$1",
                     "^@interfaces/(.*)$": "<rootDir>/src/app/shared/interfaces/$1",
                     "^@modules/(.*)$": "<rootDir>/src/app/modules/$1",
@@ -191,7 +191,7 @@
                 },
                 "moduleNameMapper": {
                     "^@client/(.*)$": "<rootDir>/src/app/$1",
-                    "^@environments/(.*)$": "<rootDir>/src/environments/$1",
+                    "^@environments/(.*)$": "<rootDir>/src/app/environments/$1",
                     "^@init$": "<rootDir>/src/server/config/init.ts",
                     "^@logger$": "<rootDir>/src/server/lib/logger.ts",
                     "^@server/(.*)$": "<rootDir>/src/server/$1",

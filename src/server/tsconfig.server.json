@@ -16,7 +16,7 @@
         "outDir": "../../dist",
         "paths": {
             "@client/*": ["../app/*"],
-            "@environments/*": ["../environments/*"],
+            "@environments/*": ["../app/environments/*"],
             "@logger": ["lib/logger"],
             "@init": ["config/init"],
             "@server/*": ["./*"],

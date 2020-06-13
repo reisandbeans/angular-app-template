@@ -22,17 +22,17 @@
                             "path": "./webpack.config.js"
                         },
                         "outputPath": "./dist/client",
-                        "index": "src/assets/index.html",
+                        "index": "src/app/assets/index.html",
                         "main": "src/app/index.ts",
                         "polyfills": "src/app/polyfills.ts",
                         "tsConfig": "src/app/tsconfig.app.json",
                         "aot": true,
                         "assets":[
-                            "src/assets/favicon.ico",
-                            "src/assets"
+                            "src/app/assets/favicon.ico",
+                            "src/app/assets"
                         ],
                         "styles":[
-                            "src/assets/styles/styles.scss"
+                            "src/app/assets/styles/styles.scss"
                         ],
                         "scripts":[
 
@@ -42,8 +42,8 @@
                         "production": {
                             "fileReplacements":[
                                 {
-                                    "replace": "src/environments/environment.ts",
-                                    "with": "src/environments/environment.prod.ts"
+                                    "replace": "src/app/environments/environment.ts",
+                                    "with": "src/app/environments/environment.prod.ts"
                                 }
                             ],
                             "optimization":true,
@@ -81,8 +81,8 @@
                             "outputHashing": "media",
                             "fileReplacements": [
                                 {
-                                    "replace": "src/environments/environment.ts",
-                                    "with": "src/environments/environment.prod.ts"
+                                    "replace": "src/app/environments/environment.ts",
+                                    "with": "src/app/environments/environment.prod.ts"
                                 }
                             ],
                             "sourceMap": false,

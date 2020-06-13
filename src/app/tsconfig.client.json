@@ -18,7 +18,7 @@
         "paths": {
             "@constants/*": ["shared/constants/*"],
             "@core/*": ["core/*"],
-            "@environments/*": ["../environments/*"],
+            "@environments/*": ["environments/*"],
             "@exceptions/*": ["shared/exceptions/*"],
             "@interfaces/*": ["shared/interfaces/*"],
             "@modules/*": ["modules/*"],
