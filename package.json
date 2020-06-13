@@ -60,7 +60,7 @@
         "@types/jest": "^25.2.2",
         "@types/jest-environment-puppeteer": "^4.3.1",
         "@types/jest-when": "^2.7.1",
-        "@types/lodash": "^4.14.151",
+        "@types/lodash": "^4.14.155",
         "@types/lolex": "^5.1.0",
         "@types/node": "^12.12.42",
         "@types/puppeteer": "^3.0.0",
