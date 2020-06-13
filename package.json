@@ -91,7 +91,7 @@
         "puppeteer": "^3.3.0",
         "supertest": "^4.0.2",
         "ts-jest": "^26.0.0",
-        "ts-node": "~8.3.0",
+        "ts-node": "~8.10.2",
         "tslint": "~6.1.0",
         "ttypescript": "^1.5.10",
         "typescript": "~3.8.3",
