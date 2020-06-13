@@ -13,9 +13,13 @@ module.exports = {
         context: true,
         jestPuppeteer: true,
     },
-    parserOptions: {
-        project: 'src/e2e/tsconfig.e2e.json',
-        sourceType: 'module'
-    },
+    overrides: [
+        {
+            files: ['*.ts', '*.tsx'],
+            parserOptions: {
+                project: 'src/e2e/tsconfig.e2e.json',
+            }
+        }
+    ],
     plugins: ['jest'],
 }

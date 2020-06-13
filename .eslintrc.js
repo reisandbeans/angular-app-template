@@ -1,113 +1,128 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es6": true,
-        "node": true
+    env: {
+        browser: true,
+        es6: true,
+        node: true
     },
-    "extends": [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "sourceType": "module",
-        "ecmaVersion": 8,
-    },
-    "plugins": [
-        "@typescript-eslint",
-        "@typescript-eslint/tslint",
-        "eslint-plugin-jsdoc",
-        "eslint-plugin-import",
-    ],
-    "root": true,
-    "rules": {
-        "@typescript-eslint/array-type": "off",
-        "@typescript-eslint/ban-types": [
-            "error",
-            {
-                "types": {
-                    "Object": {
-                        "message": "Avoid using the `Object` type. Did you mean `object`?"
-                    },
-                    "Function": {
-                        "message": "Avoid using the `Function` type. Prefer a specific function type, like `() => void`."
-                    },
-                    "Boolean": {
-                        "message": "Avoid using the `Boolean` type. Did you mean `boolean`?"
-                    },
-                    "Number": {
-                        "message": "Avoid using the `Number` type. Did you mean `number`?"
-                    },
-                    "String": {
-                        "message": "Avoid using the `String` type. Did you mean `string`?"
-                    },
-                    "Symbol": {
-                        "message": "Avoid using the `Symbol` type. Did you mean `symbol`?"
+
+    overrides: [
+        {
+            extends: [
+                'plugin:@typescript-eslint/recommended',
+                'plugin:@typescript-eslint/recommended-requiring-type-checking',
+            ],
+            files: ['*.ts', '*.tsx'],
+            parser: '@typescript-eslint/parser',
+            parserOptions: {
+                sourceType: 'module',
+                ecmaVersion: 8
+            },
+            plugins: [
+                '@typescript-eslint',
+                '@typescript-eslint/tslint'
+            ],
+            rules: {
+                "@typescript-eslint/array-type": "off",
+                "@typescript-eslint/ban-types": [
+                    "error",
+                    {
+                        "types": {
+                            "Object": {
+                                "message": "Avoid using the `Object` type. Did you mean `object`?"
+                            },
+                            "Function": {
+                                "message": "Avoid using the `Function` type. Prefer a specific function type, like `() => void`."
+                            },
+                            "Boolean": {
+                                "message": "Avoid using the `Boolean` type. Did you mean `boolean`?"
+                            },
+                            "Number": {
+                                "message": "Avoid using the `Number` type. Did you mean `number`?"
+                            },
+                            "String": {
+                                "message": "Avoid using the `String` type. Did you mean `string`?"
+                            },
+                            "Symbol": {
+                                "message": "Avoid using the `Symbol` type. Did you mean `symbol`?"
+                            }
+                        }
                     }
-                }
+                ],
+                "@typescript-eslint/indent": [
+                    "error",
+                    4,
+                    {
+                        "FunctionDeclaration": {
+                            "parameters": "first"
+                        },
+                        "FunctionExpression": {
+                            "parameters": "first"
+                        }
+                    }
+                ],
+                "@typescript-eslint/explicit-function-return-type": "off",
+                "@typescript-eslint/member-delimiter-style": [
+                    "error",
+                    {
+                        "multiline": {
+                            "delimiter": "semi",
+                            "requireLast": true
+                        },
+                        "singleline": {
+                            "delimiter": "semi",
+                            "requireLast": false
+                        }
+                    }
+                ],
+                "@typescript-eslint/member-ordering": "error",
+                "@typescript-eslint/no-empty-function": "off",
+                "@typescript-eslint/no-explicit-any": "off",
+                "@typescript-eslint/no-non-null-assertion": "error",
+                "@typescript-eslint/no-parameter-properties": "off",
+                "@typescript-eslint/no-unused-expressions": "error",
+                "@typescript-eslint/no-use-before-define": "off",
+                "@typescript-eslint/no-var-requires": "off",
+                "@typescript-eslint/prefer-for-of": "error",
+                "@typescript-eslint/prefer-function-type": "error",
+                "@typescript-eslint/quotes": [
+                    "error",
+                    "single"
+                ],
+                "@typescript-eslint/semi": [
+                    "error",
+                    "always"
+                ],
+                "@typescript-eslint/triple-slash-reference": [
+                    "error",
+                    {
+                        "path": "always",
+                        "types": "prefer-import",
+                        "lib": "always"
+                    }
+                ],
+                "@typescript-eslint/space-before-function-paren": [
+                    "error",
+                    {
+                        "anonymous": "never",
+                        "asyncArrow": "always",
+                        "named": "never"
+                    }
+                ],
+                "@typescript-eslint/unified-signatures": "error",
+                "indent": "off",
+                "space-before-function-paren": "off",
             }
-        ],
-        "@typescript-eslint/indent": [
-            "error",
-            4,
-            {
-                "FunctionDeclaration": {
-                    "parameters": "first"
-                },
-                "FunctionExpression": {
-                    "parameters": "first"
-                }
-            }
-        ],
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/member-delimiter-style": [
-            "error",
-            {
-                "multiline": {
-                    "delimiter": "semi",
-                    "requireLast": true
-                },
-                "singleline": {
-                    "delimiter": "semi",
-                    "requireLast": false
-                }
-            }
-        ],
-        "@typescript-eslint/member-ordering": "error",
-        "@typescript-eslint/no-empty-function": "off",
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-non-null-assertion": "error",
-        "@typescript-eslint/no-parameter-properties": "off",
-        "@typescript-eslint/no-unused-expressions": "error",
-        "@typescript-eslint/no-use-before-define": "off",
-        "@typescript-eslint/no-var-requires": "off",
-        "@typescript-eslint/prefer-for-of": "error",
-        "@typescript-eslint/prefer-function-type": "error",
-        "@typescript-eslint/quotes": [
-            "error",
-            "single"
-        ],
-        "@typescript-eslint/semi": [
-            "error",
-            "always"
-        ],
-        "@typescript-eslint/triple-slash-reference": [
-            "error",
-            {
-                "path": "always",
-                "types": "prefer-import",
-                "lib": "always"
-            }
-        ],
-        "@typescript-eslint/space-before-function-paren": [
-            "error",
-            {
-                "anonymous": "never",
-                "asyncArrow": "always",
-                "named": "never"
-            }
-        ],
-        "@typescript-eslint/unified-signatures": "error",
+        }
+    ],
+    parserOptions: {
+        ecmaVersion: 8,
+    },
+    plugins: [
+        'eslint-plugin-jsdoc',
+        'eslint-plugin-import',
+    ],
+    root: true,
+    rules: {
         "arrow-body-style": "off",
         "camelcase": "error",
         "comma-dangle": ["error", "always-multiline"],
@@ -134,7 +149,7 @@ module.exports = {
         ],
         "id-match": "error",
         "import/no-deprecated": "warn",
-        "indent": "off",
+        "indent": ["error", 4],
         "jsdoc/check-alignment": "error",
         "jsdoc/check-indentation": "error",
         "jsdoc/newline-after-description": "error",
@@ -185,7 +200,15 @@ module.exports = {
             "as-needed"
         ],
         "radix": "error",
-        "space-before-function-paren": "off",
+        "semi": "error",
+        "space-before-function-paren": [
+            "error",
+            {
+                "anonymous": "always",
+                "named": "never",
+                "asyncArrow": "always"
+            }
+        ],
         "spaced-comment": [
             "error",
             "always",

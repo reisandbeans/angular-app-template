@@ -1,30 +1,14 @@
 module.exports = {
-    "extends": "../../.eslintrc",
-    "overrides": [
+    extends: '../../.eslintrc',
+    overrides: [
         {
-            "files": ["tests/**/*.ts"],
-            "parserOptions": {
-                "project": 'src/server/tests/tsconfig.spec.json',
+            files: ['*.ts', '*.tsx'],
+            parserOptions: {
+                project: 'src/server/tsconfig.server.json',
             },
-            "extends": [
-                "plugin:jest/recommended",
-                "plugin:jest/style",
-            ],
-            plugins: ['jest'],
-            env: {
-                "jest/globals": true,
-            },
+            rules: {
+                '@typescript-eslint/dot-notation': 'error'
+            }
         }
     ],
-    "plugins": [
-        "@typescript-eslint",
-        "@typescript-eslint/tslint"
-    ],
-    "parserOptions": {
-        "project": "src/server/tsconfig.server.json",
-        "sourceType": "module"
-    },
-    "rules": {
-        "@typescript-eslint/dot-notation": "error"
-    }
 };

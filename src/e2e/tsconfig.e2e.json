@@ -22,7 +22,6 @@
         "target": "es2017",
         "types": [
             "jest",
-            "node",
             "puppeteer",
             "jest-environment-puppeteer",
             "expect-puppeteer",
