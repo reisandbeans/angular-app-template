@@ -90,7 +90,7 @@
         "protractor": "~5.4.3",
         "puppeteer": "^3.3.0",
         "supertest": "^4.0.2",
-        "ts-jest": "^26.0.0",
+        "ts-jest": "^26.1.0",
         "ts-node": "~8.3.0",
         "tslint": "~6.1.0",
         "ttypescript": "^1.5.10",
