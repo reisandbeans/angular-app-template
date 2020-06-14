@@ -28,8 +28,12 @@
                         "tsConfig": "src/app/tsconfig.app.json",
                         "aot": true,
                         "assets":[
-                            "src/app/assets/favicon.ico",
-                            "src/app/assets"
+                            {
+                                "glob": "**/*",
+                                "ignore": ["**/*.html", "**/*.md"],
+                                "input": "src/app/assets",
+                                "output": "assets"
+                            }
                         ],
                         "styles":[
                             "src/app/assets/styles/styles.scss"

@@ -98,13 +98,14 @@
         "typescript-transform-paths": "^1.1.14"
     },
     "scripts": {
-        "build": "npm run build:client && npm run build:server",
+        "build": "npm run clean && npm run build:client && npm run build:server",
         "build:production": "npm run build:client:production && npm run build:server:production",
         "build:client": "ng run app:build-client",
         "build:client:production": "ng run app:build-client:production",
         "build:server": "ng run app:build-server",
         "build:server:no-webpack": "npm run clean:server && ttsc --project src/server/tsconfig.server.json",
         "build:server:production": "ng run app:build-server:production",
+        "clean": "rm -rf ./dist",
         "clean:server": "rm -rf ./dist/server",
         "coverage": "jest --coverage",
         "lint": "eslint src/app/**/*.ts src/server/**/*.ts src/e2e/**/*.{ts,js}",
