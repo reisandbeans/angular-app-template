@@ -87,7 +87,7 @@
         "jest-when": "^2.7.1",
         "lint-staged": "^10.2.9",
         "lolex": "^6.0.0",
-        "protractor": "~5.4.3",
+        "protractor": "~7.0.0",
         "puppeteer": "^3.3.0",
         "supertest": "^4.0.2",
         "ts-jest": "^26.0.0",
