@@ -11,6 +11,5 @@ export class RootComponent {
 
     constructor(@Inject(PLATFORM_ID) private platformId: object) {
         this.platform = isPlatformBrowser(this.platformId) ? 'Browser' : 'Server';
-        console.log('<<<<< Platform', this.platform, '>>>>>');
     }
 }

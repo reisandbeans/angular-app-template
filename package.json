@@ -134,6 +134,7 @@
         "collectCoverageFrom": [
             "src/app/**/*.ts",
             "src/server/**/*.ts",
+            "!src/e2e/**",
             "!src/server/tests/**",
             "!src/app/tests/**"
         ],
@@ -210,16 +211,6 @@
                 "testEnvironment": "node",
                 "transform": {
                     "^.+\\.(ts|tsx)$": "ts-jest"
-                }
-            },
-            {
-                "displayName": "e2e",
-                "preset": "jest-puppeteer",
-                "roots": [
-                    "./src/e2e"
-                ],
-                "transform": {
-                    "^.+\\.ts?$": "ts-jest"
                 }
             }
         ],
