@@ -84,7 +84,7 @@
         "jest-environment-puppeteer": "^4.4.0",
         "jest-preset-angular": "^8.2.0",
         "jest-puppeteer": "^4.4.0",
-        "jest-when": "^2.7.1",
+        "jest-when": "^2.7.2",
         "lint-staged": "^10.2.9",
         "lolex": "^6.0.0",
         "protractor": "~7.0.0",
