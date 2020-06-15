@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+/* This file should contain global styles, like css for html or body */
+
+@import './buttons.scss';
+@import './fonts.scss';
+@import './forms.scss';
+@import './layers.scss';
+@import './modals.scss';
+@import './panels.scss';
+@import './text.scss';
+@import './theme.scss';
+@import './variables.scss';
+
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    border: none;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    color: var(--defaultFontColor);
+    font-size: $base-font-size;
+}

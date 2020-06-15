@@ -1,0 +1,13 @@
+/* This file should have a map with indexes for specific app layers and exposes a function to get the expected z
+ * index for a given layer*/
+
+$zIndex: (
+    dropdown: 1000,
+    modal-overlay: 4000,
+    modal: 5000,
+    modalDropdown: 6000
+);
+
+@function getLayer($layer) {
+    @return map-get($zIndex, $layer);
+}
