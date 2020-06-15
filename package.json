@@ -29,7 +29,7 @@
         "http-status-codes": "^1.4.0",
         "lodash": "^4.17.15",
         "rxjs": "^6.5.5",
-        "ts-enum-util": "^4.0.1",
+        "ts-enum-util": "^4.0.2",
         "tslib": "^1.10.0",
         "winston": "^3.2.1",
         "yargs": "^15.3.1",
