@@ -80,7 +80,7 @@
         "jest-when": "^2.7.2",
         "lint-staged": "^10.2.9",
         "lolex": "^6.0.0",
-        "puppeteer": "^3.3.0",
+        "puppeteer": "^10.1.0",
         "supertest": "^4.0.2",
         "ts-jest": "^26.1.0",
         "ts-node": "~8.10.2",
