@@ -18,7 +18,7 @@
         "@angular/platform-server": "~9.1.7",
         "@angular/router": "~9.1.7",
         "@nguniversal/express-engine": "^9.1.1",
-        "ajv": "^6.12.2",
+        "ajv": "^6.12.3",
         "akita": "^0.9.0",
         "axios": "^0.19.2",
         "body-parser": "^1.19.0",
